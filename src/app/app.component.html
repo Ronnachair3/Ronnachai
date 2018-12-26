@@ -1,21 +1,68 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<form #feedbackForm="ngForm" (submit)="onSubmit(feedbackForm.value)">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input ngModel name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="Password">Password</label>
+    <input ngModel name="password" type="password" class="form-control" id="Password" placeholder="Password">
+  </div>
 
-<router-outlet></router-outlet>
+  <div class="form-row">
+    <div class="col">
+      <label for="Name">Name</label>
+      <input ngModel name="name" type="text" class="form-control" placeholder="name">
+    </div>
+    <div class="col">
+      <label for="SubName">Last Name</label>
+      <input ngModel name="subname" type="text" class="form-control" placeholder="sub name">
+    </div>
+  </div><br>
+
+  <div class="form-group row">
+      <div class="col-2">
+          <label for="Age">Age</label>
+          <input ngModel name="age" type="text" class="form-control" placeholder="age">
+      </div>
+      <div class="col-3">
+          <label for="Gender">Gender</label>
+          <select ngModel name="gender" type="text" class="form-control" id="Gender">
+          <option selected>ชาย</option>
+          <option selected>หญิง</option>
+          <option>...</option>
+      </select>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <textarea ngModel name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"></textarea>
+  </div>
+
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input ngModel name="city" type="text" class="form-control" id="inputCity" placeholder="City">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputProvince">Province</label>
+        <input ngModel name="province" type="text" id="inputProvince" class="form-control" placeholder="Province">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip Code</label>
+        <input ngModel name="zipcode" type="text" class="form-control" id="inputZip" placeholder="Code">
+      </div>
+    </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br>
+<hr>
+<br>
+
+<p>All Feedbacks</p>
+<div>
+  <p *ngFor="let item of mDataArray">{{item.username}}: <span style="color: grey;">{{item.password}}<br></span>{{item.name}} {{item.subname}}</p>
+</div>
